@@ -1,10 +1,11 @@
 import { component$ } from '@builder.io/qwik';
 import type { DocumentHead } from '@builder.io/qwik-city';
 
-import Counter from '~/components/starter/counter/counter';
+// import Counter from '~/components/starter/counter/counter';
 import Hero from '~/components/starter/hero/hero';
 import Infobox from '~/components/starter/infobox/infobox';
 import Starter from '~/components/starter/next-steps/next-steps';
+import { foo, $init } from "~/example-wasm/example";
 
 export default component$(() => {
   return (
@@ -17,15 +18,10 @@ export default component$(() => {
         </div>
       </div>
 
-      <div class="section">
-        <div class="container center">
-          <h3>
-            You can <b>count</b> on me
-          </h3>
-          <Counter />
-        </div>
-      </div>
-
+      <button onClick$={async () => {
+        await $init
+        foo.helloWorld({a: "foo", b: "longer string by many times"})
+      }}>Wasm Functions</button>
       <div class="section">
         <div class="container topics">
           <Infobox>

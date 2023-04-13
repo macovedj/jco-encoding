@@ -1,0 +1,12 @@
+/// An example world for the component to target.
+default world component {
+  export foo: self.foo
+}                
+
+interface foo {
+  record input {
+    a: string,
+    b: string
+  }
+  hello-world: func(input: input)
+}
